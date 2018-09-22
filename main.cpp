@@ -34,6 +34,7 @@ int main(){
 	cout<<"HELLLOOOO bienvenido a Bomberman 5 (Worms es mejor juego)"<<endl;
 	cout<<"SU nombre sera Panchito porque no me dio tiempo de hacerlo con respuesta de usuario"<<endl;
 	bool alive = true;
+	cout<<"AVISOOO:: Esta en alfa stage este juego todavia; solo el player se mueve y pone bombas pero no estallan las bombas; y debido a que todos quedan vivos nunca se sale del while soo meta el comando ctrl c para salir; gracias por su comprension"<<endl;
 	while(alive == true){
 	cout<<"El tablero se encuentra en este estado ahorita:: "<<endl;
 	printTablero(Tablero);
@@ -51,11 +52,11 @@ int main(){
 			}
 		}
 		if(movement[i] == 's' || movement[i] == 'S'){
-			cout<<"HOLLAAA2";
+		
 			if(posicion_y + 1 > 10 ){
-			cout<<"HOLAAA";
+	
 			}else{
-			cout<<"HI"<<endl;
+	
 				posicion_y++;
 			}
 		}
@@ -77,7 +78,6 @@ int main(){
 			Tablero[posicion_y][posicion_x] = new Normal(4,3);
 		}
 	}
-	cout<<posicion_y<<endl;
 	Tablero = Movement(old_y,old_x,posicion_y,posicion_x,Tablero);
 }
 
@@ -146,18 +146,18 @@ void deleteMatrix(Item*** Tablero){
 	delete[] Tablero;
 }
 
-Item*** Movement(int old_y,int old_x,int posicion_y,int posicion_x,Item*** Tablero){
+Item*** Movement(int old_y2,int old_x2,int posicion_y2,int posicion_x2,Item*** Tablero){
 
-	if(Tablero[posicion_y][posicion_x] !=NULL){
-		cout<<"if"<<endl;
-		posicion_x = old_x;
-		posicion_y = old_y;
+	if(Tablero[posicion_y2][posicion_x2] !=NULL){
+	
+		posicion_x = old_x2;
+		posicion_y = old_y2;
 	}
 	else{
-		Jugador* player = dynamic_cast<Jugador*>(Tablero[old_x][old_y]);
-		Tablero[posicion_y][posicion_x] = player;
-		Tablero[old_x][old_y] = NULL;
-		cout<<"yes"<<endl;
+		Jugador* player = dynamic_cast<Jugador*>(Tablero[old_y2][old_x2]);
+		Tablero[posicion_y2][posicion_x2] = player;
+		Tablero[old_y2][old_x2] = NULL;
+
 	}
 
 	return Tablero;
